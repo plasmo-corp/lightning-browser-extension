@@ -11,6 +11,7 @@ import ConfirmSignMessage from "../../screens/ConfirmSignMessage";
 import ConfirmPayment from "../../screens/ConfirmPayment";
 import LNURLPay from "../../screens/LNURLPay";
 import LNURLAuth from "../../screens/LNURLAuth";
+import LNURLWithdraw from "../../screens/LNURLWithdraw";
 
 class Prompt extends Component {
   constructor(props) {
@@ -49,6 +50,15 @@ class Prompt extends Component {
                 element={<Enable origin={this.state.origin} />}
               />
               <Route
+                path="lnurlAuth"
+                element={
+                  <LNURLAuth
+                    details={this.state.args?.lnurlDetails}
+                    origin={this.state.origin}
+                  />
+                }
+              />
+              <Route
                 path="lnurlPay"
                 element={
                   <LNURLPay
@@ -58,9 +68,9 @@ class Prompt extends Component {
                 }
               />
               <Route
-                path="lnurlAuth"
+                path="lnurlWithdraw"
                 element={
-                  <LNURLAuth
+                  <LNURLWithdraw
                     details={this.state.args?.lnurlDetails}
                     origin={this.state.origin}
                   />

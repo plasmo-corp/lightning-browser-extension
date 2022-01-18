@@ -53,8 +53,8 @@ export default function TestConnection() {
   function claimSats(event) {
     event.preventDefault();
     setFaucetLoading(true);
-    utils
-      .call("makeInvoice", { amount: faucetAmount, memo: faucetMemo })
+    api
+      .makeInvoice({ amount: faucetAmount, memo: faucetMemo })
       .then((invoice) => {
         axios
           .post(faucetURL, {
